@@ -1,4 +1,9 @@
-import { House, Lightning, TwitterLogo } from "@phosphor-icons/react";
+import {
+  House,
+  Lightning,
+  PiggyBank,
+  TwitterLogo,
+} from "@phosphor-icons/react";
 import { GithubLogo } from "@phosphor-icons/react/dist/ssr";
 
 export const SCROLL_AREA_ID = "scroll-area";
@@ -14,6 +19,11 @@ export const LINKS = [
     href: "/electric-sheep",
     label: "电羊",
     icon: <Lightning size={20} weight="duotone" />,
+  },
+  {
+    href: "/pigmo",
+    label: "Pigmo",
+    icon: <PiggyBank size={20} weight="duotone" />,
   },
   // {
   //   href: "http://www.baidu.com",
