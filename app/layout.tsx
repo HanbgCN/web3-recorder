@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { SiderBar } from "@/components/sider-bar";
-import { ScrollArea } from "@/components/scroll-area";
 import { NavHeader } from "@/components/nav-header";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Web3 Recorder",
-  description: "Record project I have joined.",
+  description: "Web3 Projects I have joined.",
 };
 
 export default function RootLayout({
@@ -19,16 +19,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-row`}>
-        <aside className="w-[280px]">
+      <body className={`${inter.className} w-full h-screen flex flex-row`}>
+        <aside className="shrink-0">
           <SiderBar />
         </aside>
-        <div className="flex flex-1">
-          <ScrollArea className="flex flex-col" hasScrollTitle>
-            <NavHeader scrollTitle="bghan20" />
-            {children}
-          </ScrollArea>
-        </div>
+        <main className="w-full h-full flex flex-col">
+          <NavHeader />
+          <ScrollArea className="flex-grow-0 my-2">{children}</ScrollArea>
+        </main>
       </body>
     </html>
   );

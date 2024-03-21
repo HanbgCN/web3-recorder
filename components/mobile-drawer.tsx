@@ -1,5 +1,6 @@
-import { Drawer } from "vaul";
+"use-client";
 
+import { Drawer } from "vaul";
 import { MenuContent } from "@/components/menu-content";
 import { Button } from "@/components/ui/button";
 import { Command } from "@phosphor-icons/react";

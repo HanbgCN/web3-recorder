@@ -10,6 +10,7 @@ export default function PigmoPage() {
     <PageContainer>
       <PageHeader
         heading="Pigmo"
+        status="已结束"
         description="Pigmo 是一个基于Solana区块链的线上博彩平台，有实体公司做支撑，目前已经上线了多种类型的博彩游戏"
       />
       <p className="text-muted-foreground">

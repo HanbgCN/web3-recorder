@@ -20,6 +20,8 @@ export function PageContainer({ children, className }: PageContainerProps) {
 
 export interface PageHeaderProps {
   heading: string;
+  status?: string;
+  StatusColor?: string;
   description?: string;
   className?: string;
   children?: React.ReactNode;
@@ -27,6 +29,8 @@ export interface PageHeaderProps {
 
 export function PageHeader({
   heading,
+  status,
+  StatusColor,
   description,
   className,
   children,
@@ -36,7 +40,10 @@ export function PageHeader({
       className={cn("flex flex-row justify-between items-center", className)}
     >
       <div className="flex flex-col">
-        <h1 className="text-3xl font-bold">{heading}</h1>
+        <h1 className="text-3xl font-bold">
+          <span>{heading}</span>
+          {status && <span className={`text-[#f90]`}>{status}</span>}
+        </h1>
         <p className="text-muted-foreground">{description}</p>
       </div>
 
