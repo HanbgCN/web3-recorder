@@ -2,17 +2,11 @@ import { cn } from "@/lib/utils";
 
 export interface PageContainerProps {
   children: React.ReactNode;
-  className?: string;
 }
 
-export function PageContainer({ children, className }: PageContainerProps) {
+export function PageContainer({ children }: PageContainerProps) {
   return (
-    <div
-      className={cn(
-        "container px-8 max-w-4xl flex min-h-screen flex-col py-24 gap-4",
-        className
-      )}
-    >
+    <div className="container lg:max-w-5xl min-h-screen max-w-[100vw] flex flex-col px-8 lg:py-24 py-8 gap-4">
       {children}
     </div>
   );
@@ -44,7 +38,7 @@ export function PageHeader({
           <span>{heading}</span>
           {status && <span className={`text-[#f90]`}>{status}</span>}
         </h1>
-        <p className="text-muted-foreground">{description}</p>
+        <p className="text-muted-foreground text-wrap">{description}</p>
       </div>
 
       {children}

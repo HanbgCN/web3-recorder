@@ -1,13 +1,30 @@
-"use-client";
+"use client";
 
 import { Drawer } from "vaul";
-import { MenuContent } from "@/components/menu-content";
 import { Button } from "@/components/ui/button";
 import { Command } from "@phosphor-icons/react";
+import { MenuBar } from "@/components/menu-bar";
+import {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+} from "react";
+
+interface MobileDrawerContextInterface {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+export const MenuDrawerContext = createContext<MobileDrawerContextInterface>(
+  {} as MobileDrawerContextInterface
+);
 
 export function MobileDrawer() {
+  const [open, setOpen] = useState(false);
+
   return (
-    <Drawer.Root shouldScaleBackground>
+    <Drawer.Root shouldScaleBackground open={open} onOpenChange={setOpen}>
       <Button variant="ghost" size="icon" title="Toggle drawer" asChild>
         <Drawer.Trigger>
           <Command size={20} />
@@ -15,14 +32,15 @@ export function MobileDrawer() {
       </Button>
       <Drawer.Portal>
         <Drawer.Overlay className="fixed inset-0 bg-black/40" />
-        <Drawer.Content className="fixed bottom-0 left-0 right-0 mt-24 flex h-[80%] flex-col rounded-t-lg bg-gray-100">
-          <div className="flex-1 overflow-y-auto rounded-t-lg bg-white">
-            <div className="pointer-events-none sticky inset-x-0 top-0 flex h-10 items-center justify-center overflow-hidden bg-white">
-              <div className="h-1.5 w-12 shrink-0 rounded-full bg-gray-300" />
-            </div>
-            <div className="p-4">
-              <MenuContent />
-            </div>
+        <Drawer.Content
+          className="fixed bottom-0 left-0 right-0 flex flex-col rounded-t-lg bg-white
+        "
+        >
+          <div className="p-4 flex flex-col relative max-h-[80vh]">
+            <div className="flex-shrink-0 self-center bg-zinc-200 h-2 w-12 rounded" />
+            <MenuDrawerContext.Provider value={{ setOpen }}>
+              <MenuBar />
+            </MenuDrawerContext.Provider>
           </div>
         </Drawer.Content>
       </Drawer.Portal>

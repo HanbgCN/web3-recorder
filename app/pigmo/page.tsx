@@ -7,7 +7,7 @@ import Image from "next/image";
 
 export default function PigmoPage() {
   return (
-    <PageContainer>
+    <>
       <PageHeader
         heading="Pigmo"
         status="已结束"
@@ -107,6 +107,6 @@ export default function PigmoPage() {
       <Separator className="my-16" />
       <p className="text-muted-foreground text-center">over!</p>
       <div className="pt-16" />
-    </PageContainer>
+    </>
   );
 }

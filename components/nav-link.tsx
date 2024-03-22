@@ -1,8 +1,10 @@
 "use client";
 
-import { ArrowUpRight, At } from "@phosphor-icons/react";
+import { MenuDrawerContext } from "@/components/mobile-drawer";
+import { At } from "@phosphor-icons/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useContext } from "react";
 
 export interface NavLinkProps {
   label: string;
@@ -12,6 +14,8 @@ export interface NavLinkProps {
 
 export const NavLink = ({ label, href, icon }: NavLinkProps) => {
   const pathname = usePathname();
+  const { setOpen } = useContext(MenuDrawerContext);
+
   const iconCom = icon ? icon : <At size={16} />;
 
   const isInternal = href.startsWith("/");
@@ -44,6 +48,7 @@ export const NavLink = ({ label, href, icon }: NavLinkProps) => {
       className={`p-3 rounded-md ${
         isActive ? "bg-zinc-700 text-white" : "hover:bg-gray-300"
       }`}
+      onClick={() => setOpen(false)}
     >
       <span className="flex items-center text-base gap-2">
         {iconCom} <span>{label}</span>

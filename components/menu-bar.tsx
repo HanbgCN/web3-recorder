@@ -7,13 +7,18 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
 import { LINKS, PROFILES } from "@/lib/config";
 import Image from "next/image";
+import { useContext } from "react";
+import { MenuDrawerContext } from "@/components/mobile-drawer";
 
-export const MenuBar = () => {
+export const MenuBar = (): React.ReactNode => {
+  const { setOpen } = useContext(MenuDrawerContext);
+
   return (
-    <div className="h-full flex flex-col gap-4 text-sm py-4">
+    <div className="flex-1 overflow-hidden flex flex-col gap-4 text-sm py-4">
       <Link
         href="/"
         className="link-card inline-flex items-center gap-2 p-4 mx-4"
+        onClick={() => setOpen(false)}
       >
         <Image
           src="https://avatars.githubusercontent.com/u/31720493?v=4"
@@ -28,7 +33,7 @@ export const MenuBar = () => {
           <span className="text-muted-foreground">Crypto & Web3 OG </span>
         </div>
       </Link>
-      <ScrollArea className="flex-grow-0 px-4">
+      <ScrollArea className="flex-1 px-4">
         <div className="flex flex-col gap-2">
           {LINKS.map(({ href, label, icon }) => (
             <NavLink key={href} href={href} label={label} icon={icon} />
