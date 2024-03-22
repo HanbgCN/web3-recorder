@@ -1,6 +1,8 @@
 "use client";
 
-import { PageContainer, PageHeader } from "@/components/page-container";
+import { Status } from "@/components/status";
+import { Topic } from "@/components/topic";
+import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { DiscordLogo, TwitterLogo } from "@phosphor-icons/react";
 import Image from "next/image";
@@ -8,11 +10,14 @@ import Image from "next/image";
 export default function PigmoPage() {
   return (
     <>
-      <PageHeader
+      <div
         heading="Pigmo"
         status="已结束"
         description="Pigmo 是一个基于Solana区块链的线上博彩平台，有实体公司做支撑，目前已经上线了多种类型的博彩游戏"
       />
+      <Topic topic="Pigmo">
+        <Status status="ongoing" />
+      </Topic>
       <p className="text-muted-foreground">
         计划2024.03.15发行NFT，总量10000枚，后续上线$PIG，
       </p>
