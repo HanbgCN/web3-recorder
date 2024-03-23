@@ -9,11 +9,10 @@ type StatusProps = {
 const variantMap = (status: StatusType) => {
   switch (status) {
     case "ongoing":
-      return "default";
+      return "secondary";
     case "finished":
       return "secondary";
     case "counting":
-    default:
       return "outline";
   }
 };
@@ -21,12 +20,11 @@ const variantMap = (status: StatusType) => {
 const classMap = (status: StatusType) => {
   switch (status) {
     case "ongoing":
-      return "text-blue-200";
+      return "font-bold text-green-500 bg-green-200";
     case "finished":
-      return "text-secondary";
+      return "text-gray-500 bg-gray-200";
     case "counting":
-    default:
-      return "text-foreground";
+      return "font-bold text-amber-500 border-amber-500";
   }
 };
 
