@@ -1,4 +1,5 @@
 import {
+  BagSimple,
   House,
   Lightning,
   PiggyBank,
@@ -16,9 +17,9 @@ export const LINKS = [
     icon: <House size={20} weight="duotone" />,
   },
   {
-    href: "/electric-sheep",
-    label: "电羊",
-    icon: <Lightning size={20} weight="duotone" />,
+    href: "/bags",
+    label: "Bags",
+    icon: <BagSimple size={20} weight="duotone" />,
   },
   {
     href: "/pigmo",
