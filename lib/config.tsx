@@ -1,7 +1,7 @@
 import {
   BagSimple,
+  CreditCard,
   House,
-  Lightning,
   PiggyBank,
   TwitterLogo,
 } from "@phosphor-icons/react";
@@ -25,6 +25,11 @@ export const LINKS = [
     href: "/pigmo",
     label: "Pigmo",
     icon: <PiggyBank size={20} weight="duotone" />,
+  },
+  {
+    href: "/ccc",
+    label: "CCC",
+    icon: <CreditCard size={20} weight="duotone" />,
   },
   // {
   //   href: "http://www.baidu.com",

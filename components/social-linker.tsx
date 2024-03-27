@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import { DiscordLogo, Globe, TwitterLogo } from "@phosphor-icons/react";
 
